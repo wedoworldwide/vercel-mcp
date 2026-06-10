@@ -1,0 +1,56 @@
+# Vercel MCP Pro
+
+> The most complete Vercel MCP server — 70 tools over the entire Vercel REST API, plus a vercel_raw escape hatch and a readonly safety mode.
+
+Vercel MCP Pro is an MCP server that lets you control the Vercel platform via the Model Context Protocol from Claude Code, Cursor and Claude Desktop, using a Vercel access token (no OAuth flow). It covers far more than the official OAuth MCP: full CRUD for env vars, domains, DNS, aliases, certs, webhooks, edge config and checks.
+
+## Tools (70 total)
+
+- Deployments: list_deployments, get_deployment, create_deployment, cancel_deployment, delete_deployment, get_deployment_events, list_deployment_files, get_deployment_file_contents, promote_deployment, rollback_deployment, get_promote_aliases
+- Projects: list_projects, get_project, create_project, update_project, delete_project, pause_project, unpause_project
+- Env vars: list_env_vars, get_env_var, create_env_var, bulk_create_env_vars, update_env_var, delete_env_var
+- Domains: list_domains, get_domain, get_domain_config, add_domain, verify_domain, remove_domain, list_project_domains, add_project_domain, remove_project_domain
+- DNS: list_dns_records, create_dns_record, update_dns_record, delete_dns_record
+- Aliases: list_aliases, get_alias, assign_alias, delete_alias
+- Certs: get_cert, issue_cert, upload_cert, remove_cert
+- Logs: get_build_logs (diagnose failed builds), get_runtime_logs (debug production)
+- Checks: list_checks, get_check, create_check, update_check, rerequest_check
+- Webhooks: list_webhooks, create_webhook, delete_webhook
+- Edge Config: list_edge_configs, get_edge_config, get_edge_config_items, create_edge_config, update_edge_config_items, delete_edge_config
+- Teams & User: get_user, list_teams, get_team, list_team_members
+- Integrations & Log Drains: list_integrations, list_log_drains, create_log_drain, delete_log_drain
+- vercel_raw: call any Vercel REST endpoint (method + versioned path + params + body) for 100% coverage
+
+## Quick install
+
+Add to claude_desktop_config.json or .mcp.json:
+```json
+{
+  "mcpServers": {
+    "vercel": {
+      "command": "npx",
+      "args": ["-y", "vercel-mcp-pro"],
+      "env": { "VERCEL_TOKEN": "your-token", "VERCEL_TEAM_ID": "team_xxx" }
+    }
+  }
+}
+```
+
+## Environment variables
+
+- VERCEL_TOKEN (required): create at https://vercel.com/account/settings/tokens
+- VERCEL_TEAM_ID (optional): default team scope; empty = personal account
+- VERCEL_TEAM_SLUG (optional): scope by team slug
+- VERCEL_READONLY (optional): "true" blocks all writes (reads + vercel_raw GETs still run)
+- VERCEL_DISABLE_RAW (optional): "true" removes the vercel_raw escape hatch
+
+## Known limitations
+
+- Readonly mode blocks mutations, not reads of secrets (list_env_vars/get_env_var return decrypted values by design).
+- VERCEL_TEAM_ID is a default scope, not a security boundary — the real boundary is the token's own scope.
+- File-based create_deployment requires you to supply files inline; for the smoothest git push → deploy loop use the bundled /vercel CLI skill.
+
+## Links
+
+- GitHub: https://github.com/helbertparanhos/vercel-mcp-pro
+- npm: https://www.npmjs.com/package/vercel-mcp-pro

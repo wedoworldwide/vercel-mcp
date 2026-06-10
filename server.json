@@ -1,0 +1,40 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.helbertparanhos/vercel-mcp-pro",
+  "description": "Complete Vercel MCP: deploys, logs, projects, env, domains, DNS, certs via the full REST API",
+  "title": "Vercel MCP Pro",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/helbertparanhos/vercel-mcp-pro",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "vercel-mcp-pro",
+      "version": "1.0.0",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "VERCEL_TOKEN",
+          "description": "Vercel access token from vercel.com/account/settings/tokens",
+          "isRequired": true,
+          "isSecret": true
+        },
+        {
+          "name": "VERCEL_TEAM_ID",
+          "description": "Default team scope (empty = personal account)",
+          "isRequired": false,
+          "isSecret": false
+        },
+        {
+          "name": "VERCEL_READONLY",
+          "description": "Set to true to block all write/delete tools",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}

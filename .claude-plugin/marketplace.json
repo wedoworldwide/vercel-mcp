@@ -1,0 +1,39 @@
+{
+  "name": "vercel-mcp-pro",
+  "displayName": "Vercel MCP Pro",
+  "description": "The most complete Vercel MCP server — 70 tools over the full Vercel REST API (deployments, logs, projects, env, domains, DNS, certs, webhooks, edge config) plus a vercel_raw escape hatch and a readonly safety mode.",
+  "version": "1.0.0",
+  "author": "helbertparanhos",
+  "license": "MIT",
+  "category": "DevOps",
+  "tags": ["mcp", "vercel", "deployment", "devops", "automation"],
+  "repository": "https://github.com/helbertparanhos/vercel-mcp-pro",
+  "npm": "vercel-mcp-pro",
+  "tools": 70,
+  "transport": "stdio",
+  "auth": "env",
+  "envVars": [
+    {
+      "name": "VERCEL_TOKEN",
+      "description": "Vercel access token (https://vercel.com/account/settings/tokens).",
+      "required": true,
+      "sensitive": true
+    },
+    {
+      "name": "VERCEL_TEAM_ID",
+      "description": "Default team scope. Empty = personal account.",
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "name": "VERCEL_READONLY",
+      "description": "Set to 'true' to block all write/delete tools.",
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "quickstart": {
+    "command": "npx",
+    "args": ["-y", "vercel-mcp-pro"]
+  }
+}

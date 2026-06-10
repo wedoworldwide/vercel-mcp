@@ -1,0 +1,23 @@
+{
+  "name": "vercel-mcp-pro",
+  "title": "Vercel MCP Pro",
+  "type": "mcp-server",
+  "description": "MCP TypeScript que cobre toda a REST API da Vercel (deploy, logs, projetos, env, domínios, DNS, aliases, certs, checks, webhooks, edge config) com 65+ tools tipadas + vercel_raw e readonly mode, para qualquer client MCP.",
+  "status": "stable",
+  "version": "1.0.0",
+  "visibility": "public",
+  "install": "npx -y vercel-mcp-pro",
+  "homepage": "https://www.npmjs.com/package/vercel-mcp-pro",
+  "language": "typescript",
+  "features": [
+    "65+ tools tipadas cobrindo a REST API da Vercel inteira",
+    "Deploy, promote, rollback, cancel e diagnóstico de builds/runtime via logs",
+    "CRUD completo de projetos, env vars, domínios, DNS, aliases, certs, webhooks e edge config",
+    "Escape hatch vercel_raw para 100% de cobertura + VERCEL_READONLY safety mode",
+    "Skill /vercel acoplada que dirige o Vercel CLI para deploy no terminal"
+  ],
+  "depends_on": [],
+  "tags": ["vercel", "mcp", "deploy", "devops", "claude-code"],
+  "owner": "Helbert Paranhos / Strat Academy",
+  "updated": "2026-06-09"
+}

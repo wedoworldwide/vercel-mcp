@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "created_at": "2026-06-09T00:00:00Z",
+  "project_type": "mcp-typescript",
+  "internal": false,
+  "references": [
+    {
+      "url": "https://vercel.com/docs/agent-resources/vercel-mcp",
+      "fetched_at": "2026-06-09T00:00:00Z",
+      "description": "Official Vercel MCP (remote, OAuth). Limited to docs search, project/deployment management and log analysis — no full CRUD. Primary gap this project fills.",
+      "tools_found": ["search docs", "manage projects", "manage deployments", "analyze logs"]
+    },
+    {
+      "url": "https://vercel.com/docs/rest-api",
+      "fetched_at": "2026-06-09T00:00:00Z",
+      "description": "Vercel REST API reference — the full surface this MCP wraps with typed tools + vercel_raw.",
+      "tools_found": [
+        "deployments",
+        "projects",
+        "environment",
+        "domains",
+        "dns",
+        "aliases",
+        "certs",
+        "logs",
+        "checks",
+        "webhooks",
+        "edge-config",
+        "teams",
+        "user",
+        "integrations",
+        "log-drains"
+      ]
+    },
+    {
+      "url": "https://github.com/msabramo/vercel-mcp",
+      "fetched_at": "2026-06-09T00:00:00Z",
+      "description": "POC MCP-on-Vercel — single demo tool (roll_dice). Not a real Vercel platform integration.",
+      "tools_found": ["roll_dice"]
+    },
+    {
+      "url": "https://github.com/chiziuwaga/vercel-ai-sdk-mcp-project",
+      "fetched_at": "2026-06-09T00:00:00Z",
+      "description": "Wraps the Vercel AI SDK (text/object generation) — NOT the Vercel platform. No deploy/logs/projects.",
+      "tools_found": ["generate_text", "generate_object", "generate_ui_component"]
+    },
+    {
+      "url": "https://github.com/vercel/vercel-plugin/blob/main/agents/deployment-expert.md",
+      "fetched_at": "2026-06-09T00:00:00Z",
+      "description": "Vercel CLI-based agent/skill. Drives the `vercel` binary rather than the REST API — basis for the bundled /vercel CLI skill.",
+      "tools_found": ["vercel deploy", "vercel logs", "vercel env"]
+    }
+  ]
+}
