@@ -1,5 +1,5 @@
 {
-  "name": "vercel-mcp-pro",
+  "name": "vercel-mcp",
   "version": "1.0.0",
   "mcpName": "io.github.helbertparanhos/vercel-mcp-pro",
   "description": "The most complete Vercel MCP server — 65+ typed tools covering the entire Vercel REST API (deployments, projects, env vars, domains, DNS, aliases, certs, logs, checks, webhooks, edge config, teams) plus a vercel_raw escape hatch and a readonly safety mode.",
@@ -14,11 +14,13 @@
     ".env.example"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "next build",
     "watch": "tsc --watch",
-    "start": "node dist/index.js",
+    "start": "next start",
     "inspector": "npx @modelcontextprotocol/inspector node dist/index.js",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build:stdio",
+    "build:stdio": "tsc -p tsconfig.stdio.json",
+    "dev": "next dev"
   },
   "keywords": [
     "vercel",
@@ -42,17 +44,24 @@
     "url": "https://github.com/helbertparanhos/vercel-mcp-pro/issues"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0",
+    "@modelcontextprotocol/server": "^2",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
+    "mcp-handler": "^2",
+    "next": "^15",
+    "react": "^19",
+    "react-dom": "^19",
     "zod": "^3.24.1",
     "zod-to-json-schema": "^3.24.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
+    "@types/react": "^19",
     "typescript": "^5.7.3"
-  }
+  },
+  "private": true
 }
